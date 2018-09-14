@@ -12,8 +12,23 @@ class Home extends CI_Controller{
   }
 
   function home(){
+    $config['base_url'] = base_url().'Home/home/';
+    $config['total_rows'] = $this->Home_model->num_products();
+    $config['per_page'] = 2;
+    $config['num_links'] = 5;
+    $config['first_link'] = 'Primero';
+    $config['last_link'] = 'Ultimo';
+    $config['next_link'] = 'Siguiente';
+    $config['prev_link'] = 'Anterior';
+
+    $config['cur_tag_open'] = '<a active>';
+    $config['cur_tag_last'] = '</a>';
+
+    $this->pagination->initialize($config);
+
     $data = array(
-      'productos' => $this->Home_model->getProductos()
+      'productos'   => $this->Home_model->get_products($config['per_page']),
+      'paginacion'  => $this->pagination->create_links()
     );
 
     $this->load->view('layouts/header');
@@ -50,7 +65,7 @@ class Home extends CI_Controller{
     $this->load->view('store', $data);
   }
 
-  
+
 
   function sendmail(){
     $data = array(

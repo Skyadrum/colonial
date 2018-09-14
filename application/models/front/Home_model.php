@@ -25,4 +25,15 @@ class Home_model extends CI_Model{
     return $producto->row();
   }
 
+  function num_products(){
+    return $this->db->get('Productos')->num_rows();
+  }
+
+  function get_products($per_page){
+    $datos = $this->db->get('Productos', $per_page, $this->uri->segment(3));
+
+    return $datos->result();
+
+  }
+
 }
