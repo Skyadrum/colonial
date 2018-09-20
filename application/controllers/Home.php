@@ -16,13 +16,24 @@ class Home extends CI_Controller{
     $config['total_rows'] = $this->Home_model->num_products();
     $config['per_page'] = 2;
     $config['num_links'] = 5;
-    $config['first_link'] = 'Primero';
-    $config['last_link'] = 'Ultimo';
-    $config['next_link'] = 'Siguiente';
-    $config['prev_link'] = 'Anterior';
+
+    $config['full_tag_open'] = '<div class="pagination">';
+    $config['full_tag_close'] = '</div>';
 
     $config['cur_tag_open'] = '<a active>';
-    $config['cur_tag_last'] = '</a>';
+    $config['cur_tag_close'] = '</a>';
+
+    $config['first_link'] = '«';
+    $config['prev_link'] = '‹';
+
+    $config['last_link'] = '»';
+    $config['next_link'] = '›';
+
+    $config['first_tag_open'] = '<a class="previous">';
+    $config['first_tag_close'] = '</a>';
+
+    $config['last_tag_open'] = '<a class="next">';
+    $config['last_tag_close'] = '</a>';
 
     $this->pagination->initialize($config);
 
