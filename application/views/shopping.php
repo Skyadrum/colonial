@@ -38,7 +38,10 @@
 												</li>
 			          			</ul>
 			            	</td>
-			            	<td>$<?php echo $this->cart->format_number($items['subtotal'],2,',','.') ?></td>
+			            	<td>
+											<input type="hidden" id="subtotal" value="<?php echo $items['subtotal'] ?>">
+											$<?php echo $this->cart->format_number($items['subtotal'],2,',','.') ?>
+										</td>
 									</tr>
 								<?php $i++; ?>
 								<?php endforeach; ?>
@@ -61,17 +64,26 @@
 							<tbody>
 								<tr>
 									<td><h3>SUBTOTAL</h3></td>
-									<td><p>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?> <br>(impuesto incluido)</p> </td>
+									<td>
+										<input type="text" id="sub" value="" readonly style="border: 0;">
+										<p>(impuesto incluido)</p>
+									</td>
 
 								</tr>
 								<tr>
 									<td><h3>Envio</h3></td>
-									<td> <p>Envio Gratis <small>(para pedidos mayores de $1,000)</small> <br> Calcular Envio</p></td>
-
+									<td>
+										<input type="text" id="envio" value="" readonly style="border: 0;">
+										<p>Envio Gratis <small>(para pedidos mayores de $1,000)</small></p>
+									</td>
 								</tr>
 								<tr>
 									<td><h3>Total</h3></td>
-									<td><p>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?> <br>(incluye el .16% IVA)</p> </td>
+									<td>
+										<input type="text" id="total" value="" readonly style="border: 0;">
+										<p>(incluye el .16% IVA)</p>
+									</td>
+									<!-- <td><p>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?> </p> </td> -->
 								</tr>
 							</tbody>
 						</table>
@@ -204,6 +216,8 @@
 		<script src="<?php echo base_url() ?>static/js/skel.min.js"></script>
 		<script src="<?php echo base_url() ?>static/js/util.js"></script>
 		<script src="<?php echo base_url() ?>static/js/main.js"></script>
+		<script src="<?php echo base_url() ?>static/js/ventas.js"></script>
+		<script src="<?php echo base_url() ?>static/js/carrito.js"></script>
 
 	</body>
 </html>
