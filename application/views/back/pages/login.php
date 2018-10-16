@@ -28,14 +28,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Inicio de Sesión</div>
       <div class="card-body">
-        <form action="<?php echo base_url(); ?>login/iniciar" method="post">
+        <form action="<?php echo base_url(); ?>Login/login" method="post">
           <div class="form-group">
-            <label for="uuser">Usuario:</label>
-            <input class="form-control" name="uuser" id="uuser" type="text" placeholder="Nombre de usuario">
+            <label for="usuario">Usuario:</label>
+            <input class="form-control" name="usuario" id="usuario" type="text" placeholder="Nombre de usuario">
           </div>
           <div class="form-group">
-            <label for="upassword">Contraseña:</label>
-            <input class="form-control" name="upassword" id="upassword" type="password" placeholder="Contraseña">
+            <label for="password">Contraseña:</label>
+            <input class="form-control" name="password" id="password" type="password" placeholder="Contraseña">
           </div>
           <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
         </form>

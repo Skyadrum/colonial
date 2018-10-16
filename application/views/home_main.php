@@ -29,8 +29,8 @@
 					</a>
 					<h3><?php echo $producto->nombre ?></h3>
 					<ul class="icons alt">
-						<li class="red"><del>$75.00 MNX</del></li> <!-- Precio con descuento -->
-						<li><span><strong><?php echo $producto->precio ?> MNX</strong></span></li>
+						<!-- <li class="red"><del>$75.00 MNX</del></li> Precio con descuento -->
+						<li><span><strong>$<?php echo $producto->precio ?>.00 MNX</strong></span></li>
 					</ul>
 				</article>
 			<?php endforeach; ?>

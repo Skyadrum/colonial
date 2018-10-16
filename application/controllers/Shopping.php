@@ -79,19 +79,122 @@ class Shopping extends CI_Controller{
       'cp'            => $this->input->post('cp'),
       'colonia'       => $this->input->post('colonia'),
       'direccion'     => $this->input->post('direccion'),
+
+      'item_fac'      => $this->input->post('item_fac'),
     );
+
+    $items = $this->cart->contents();
+
+    //correo
+    $config = Array(
+      'protocol' => 'smtp',
+      'mailtype' => 'html',
+      'smtp_host' => 'smtp.mailtrap.io',
+      'smtp_port' => 2525,
+      'smtp_user' => '6f0cbf43d72d0d',
+      'smtp_pass' => '6f2e12522f5a9b',
+      'crlf' => "\r\n",
+      'newline' => "\r\n"
+    );
+
+    $this->email->initialize($config);
+
+    echo "<pre>";
+    print_r ($items);
+    echo "</pre>";
+
+    $msg = 'Estimado '.$data['nombre'].' '.$data['apellidos'].'<br><br>'.'Hemos recibido su solicitud de compra de los siguientes productos: <br><br>'.
+    '<div>'.
+      '<table>'.
+        '<thead>'.
+          '<tr>'.
+            '<th>Producto</th>'.
+            '<th>Precio unitario</th>'.
+            '<th>Cantidad</th>'.
+            '<th>Total</th>'.
+          '</tr>'.
+        '</thead>'.
+      '<tbody>';
+
+    if ($this->cart->total() >= 1000) {
+      foreach ($items as $item) {
+        $msg .= '<tr>';
+        $msg .= '<td>'.$item['name'].'</td>';
+        $msg .= '<td>'.$item['price'].'</td>';
+        $msg .= '<td>'.$item['qty'].'</td>';
+        $msg .= '<td>'.$item['subtotal'].'</td>';
+        $msg .= '</tr>';
+      }
+
+      $total = $this->cart->total();
+
+      $msg .= '<tfoot>';
+      $msg .= '<tr>';
+      $msg .= '<td>Envio:</td>';
+      $msg .= '<td>$0.00</td>';
+      $msg .= '</tr>';
+
+      $msg .= '<td>Total:</td>';
+      $msg .= '<td>'.'$'.number_format($total,2,".",",").'</td>';
+      $msg .= '</tr>';
+      $msg .= '</tfoot>';
+
+    } else {
+        foreach ($items as $item) {
+          $msg .= '<tr>';
+          $msg .= '<td>'.$item['name'].'</td>';
+          $msg .= '<td>'.$item['price'].'</td>';
+          $msg .= '<td>'.$item['qty'].'</td>';
+          $msg .= '<td>'.$item['subtotal'].'</td>';
+          $msg .= '</tr>';
+        }
+
+        $envio = 250;
+        $sub = $this->cart->total();
+        $total = $sub + $envio;
+
+        $msg .= '<hr>';
+        $msg .= '<tfoot>';
+        $msg .= '<tr>';
+        $msg .= '<td>Envio:</td>';
+        $msg .= '<td>$250.00</td>';
+        $msg .= '</tr>';
+
+        $msg .= '<tr>';
+        $msg .= '<td>Total:</td>';
+        $msg .= '<td>'.'$'.number_format($total,2,".",",").'</td>';
+        $msg .= '</tr>';
+        $msg .= '</tfoot>';
+      }
+
+    $msg .= '</tbody>'.'</table>'.'</div>';
+
+
+    $this->email->from($data['correo'], $data['nombre']);
+    $this->email->to('ejemplo@ejemplo.com');
+    $this->email->message($msg);
+
+    // $data['item_name']
+
+    $this->email->send();
 
     if ($this->Shopping_model->addVenta($data)) {
       echo '<script type="text/javascript">
               alert("Su petición ha sido recibida, por favor revise su correo en unos minutos");
             </script>';
-      redirect(base_url().'', 'refresh');
+      // $this->cart->destroy();
+      // redirect(base_url().'', 'refresh');
+
     } else {
         echo '<script type="text/javascript">
                 alert("Algo va mal, por favor verifique sus datos");
               </script>';
-        redirect(base_url().'shopping', 'refresh');
+        // redirect(base_url().'shopping', 'refresh');
       }
+  }
 
+  function empty(){
+    $this->cart->destroy();
+    redirect(base_url().'', 'refresh');
   }
 }

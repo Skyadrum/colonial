@@ -1,20 +1,25 @@
+const costo  = 250; // Costo del envio
+const precio = document.getElementById('precio'); // Precio a mostrar
+const sub    = document.getElementById('sub'); // subtotal
+const envio  = document.getElementById('envio'); // Input donde mostramos el valor del envio
+const total  = document.getElementById('total') // costo total del pedido
 
-const envio       = document.getElementById('envio');
-const subtotal    = document.getElementById('subtotal');
-const sub         = document.getElementById('sub');
-const total       = document.getElementById('total');
-const costo       = 250;
+const pedido = document.getElementById('pedido');
 
-// console.log(subtotal);
 
-if (subtotal.value > 1000) {
-  envio.value = '0';
-  sub.value = subtotal.value;
+
+if (sub.value >= 1000) {
+    document.getElementById('mensaje').style.display = 'none';
+
+    precio.value = '$' + parseInt(precio.value) + '.00';
+    envio.value  = 'Gratis!';
+    total.value = '$' + sub.value + '.00';
 
 } else {
-  envio.value = parseInt(costo);
-  sub.value = subtotal.value;
-  var final = parseInt(subtotal.value) + parseInt(costo);
-  total.value = parseInt(final);
+    precio.value = '$' + parseInt(precio.value) + '.00';
+    envio.value  = '$' + costo + '.00';
+    var final = parseInt(sub.value) + parseInt(costo);
+    total.value = '$' + final + '.00' ;
+  }
 
-}
+const formEnviar = document.getElementById('update');

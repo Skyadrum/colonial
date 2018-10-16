@@ -13,7 +13,7 @@
 						<h3>MI CARRITO</h3>
 						<thead>
 							<tr>
-								<th> </th>
+									<th> </th>
 	              	<th>Producto</th>
 	              	<th>Precio</th>
 	              	<th>Cantidad</th>
@@ -33,7 +33,7 @@
 			              	<ul class="icons alt">
 			              		<li>
 													<a class="icon solo fa-minus-circle label" onclick="cantidad.value--;"></a>
-													<input type="text" name="<?php echo $i.'[qty]' ?>" value="<?php echo $items['qty'] ?>" id="cantidad" readonly>
+													<input type="text" name="<?php echo $i.'[qty]' ?>" value="<?php echo $items['qty'] ?>" id="cantidad" >
 													<a class="icon fa-plus-circle label" onclick="cantidad.value++;"></a>
 												</li>
 			          			</ul>
@@ -46,6 +46,7 @@
 								<?php $i++; ?>
 								<?php endforeach; ?>
 							<?php endif; ?>
+
 						</tbody>
 
 						<tfoot>
@@ -65,7 +66,8 @@
 								<tr>
 									<td><h3>SUBTOTAL</h3></td>
 									<td>
-										<input type="text" id="sub" value="" readonly style="border: 0;">
+										<input type="text" id="precio" value="<?php echo $this->cart->total() ?>" style="border: 0;" readonly>
+										<input type="hidden" id="sub" value="<?php echo $this->cart->total() ?>">
 										<p>(impuesto incluido)</p>
 									</td>
 
@@ -74,7 +76,7 @@
 									<td><h3>Envio</h3></td>
 									<td>
 										<input type="text" id="envio" value="" readonly style="border: 0;">
-										<p>Envio Gratis <small>(para pedidos mayores de $1,000)</small></p>
+										<p id="mensaje">Envio Gratis <small>(para pedidos mayores de $1,000)</small></p>
 									</td>
 								</tr>
 								<tr>
@@ -133,7 +135,6 @@
 						</div>
 					</div>
 
-
 					<!--TOTAL -->
 					<h3>Tu Pedido</h3>
 					<div class="table-wrapper">
@@ -145,29 +146,39 @@
 								</tr>
 							</thead>
 							<tbody>
+								<?php $i = 1; ?>
+								<?php foreach ($this->cart->contents() as $items): ?>
+									<tr>
+										<td><?php echo $items['name'] ?></td>
+										<td>$<?php echo $this->cart->format_number($items['subtotal'],2,',','.') ?></td>
+									</tr>
+								<?php $i++; ?>
+								<?php endforeach; ?>
 								<tr>
-									<td>Pulcera Tejida</td>
-									<td>$50.00</td>
-								</tr>
-								<tr>
-									<td>Pulcera Tejida</td>
-									<td>$50.00</td>
-								</tr>
-								<tr>
-									<td>Pulcera Tejida</td>
-									<td>$50.00</td>
-								</tr>
-								<tr>
-									<td>Sub-Total</td>
-									<td>$150.00</td>
+									<td>Sub-Total</td> <!-- Aqui es el total -->
+									<td>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?></td>
 								</tr>
 								<tr>
 									<td>Envio</td>
-									<td>Envio Gratis</td>
+									<?php if ($this->cart->total() >= 1000): ?>
+										<td>Gratis!!</td>
+										<?php else: ?>
+											<td>$250.00</td>
+									<?php endif; ?>
 								</tr>
 								<tr>
-									<td>Total</td>
-									<td>$150.00</td>
+									<td>Total</td> <!-- Aqui es el total más envio -->
+									<?php if ($this->cart->total() >= 1000): ?>
+										<td>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?></td>
+										<?php else: ?>
+											<td>$<?php
+													$subtotal = $this->cart->total();
+													$envio = 250;
+													$total = $subtotal + $envio;
+													echo number_format($total,2,',','.');
+												?>
+											</td>
+									<?php endif; ?>
 								</tr>
 							</tbody>
 						</table>
@@ -187,7 +198,7 @@
 							<div class="12u$">
 								<ul class="actions">
 									<!-- <li><input type="button" value="Realizar Pedido" class="special" /></li> -->
-									<li><button type="submit" class="special">Realizar Pedido</button></li>
+									<li><button type="submit" id="pedido" class="special">Realizar Pedido</button></li>
 									<li><input class="cancelar" type="reset" value="Cancelar" /></li>
 								</ul>
 							</div>

@@ -1,32 +1,38 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="<?php echo base_url(); ?>back/Dashboard/index">LineCodeId - Panel Administrativo</a>
+  <a class="navbar-brand" href="<?php echo base_url(); ?>back/Dashboard/index">Colonial Santiago - Panel Administrativo</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-        <a class="nav-link" href="<?= base_url(); ?>back/roles/listado">
+        <a class="nav-link" href="<?php echo base_url() ?>roles">
           <i class="fa fa-fw fa-sitemap"></i>
           <span class="nav-link-text">Roles</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="<?= base_url(); ?>back/usuarios/listado">
+        <a class="nav-link" href="<?php echo base_url() ?>usuarios">
           <i class="fa fa-fw fa-users"></i>
           <span class="nav-link-text">Usuarios</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="<?= base_url(); ?>back/servicios/listado">
+        <a class="nav-link" href="">
           <i class="fa fa-product-hunt" aria-hidden="true"></i>
-          <span class="nav-link-text">Servicios</span>
+          <span class="nav-link-text">Productos</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="<?= base_url(); ?>back/clientes/listado">
+        <a class="nav-link" href="">
           <i class="fa fa-user-plus" aria-hidden="true"></i>
           <span class="nav-link-text">Clientes</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <a class="nav-link" href="">
+          <i class="fa fa-tasks" aria-hidden="true"></i>
+          <span class="nav-link-text">Banners</span>
         </a>
       </li>
       <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -35,7 +41,8 @@
           <span class="nav-link-text">Tables</span>
         </a>
       </li> -->
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+
+      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
           <i class="fa fa-fw fa-newspaper-o"></i>
           <span class="nav-link-text">Contenido</span>
@@ -54,7 +61,7 @@
             <a href="<?php echo base_url(); ?>back/correos/listado">Correos</a>
           </li>
         </ul>
-      </li>
+      </li> -->
 
     </ul>
     <ul class="navbar-nav sidenav-toggler">

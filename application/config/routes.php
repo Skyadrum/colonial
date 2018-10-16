@@ -63,7 +63,17 @@ $route['contact'] = 'Home/contact';
 $route['store/(:num)'] = 'Home/store/$1';
 
 // Backend Routes
+$route['admin'] = 'login/index';
 $route['dashboard'] = 'back/Dashboard';
+
+
+// Roles Routes
+$route['roles'] = 'back/Roles/listado';
+$route['roles/agregar'] = 'back/Roles/form';
+
+// Usuarios Routes
+$route['usuarios'] = 'back/Users/listado';
+$route['usuarios/agregar'] = 'back/Users/form';
 
 // Banner Routes
 $route['banners'] = 'back/Banners/listado';
