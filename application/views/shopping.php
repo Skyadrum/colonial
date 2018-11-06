@@ -1,104 +1,114 @@
-		<!-- Main -->
-		<div id="main">
-			<!-- Post -->
-			<div class="table-wrapper ocultar">
-				<?php if (!$this->cart->contents()): ?>
-					<div style="margin-top:30px;" align="center">
-						<h2>Tu carrito esta vacio!</h2>
-					</div>
-				<?php else: ?>
-
-				<form action="<?php echo base_url() ?>Shopping/actualizarCarrito" method="post"> <!-- Inicio del Form -->
-					<table class="alt">
-						<h3>MI CARRITO</h3>
-						<thead>
-							<tr>
-									<th> </th>
-	              	<th>Producto</th>
-	              	<th>Precio</th>
-	              	<th>Cantidad</th>
-	              	<th>Subtotal</th>
-	            	</tr>
-						</thead>
-						<tbody>
-							<?php $i = 1; ?>
-								<?php foreach ($this->cart->contents() as $items): ?>
-									<?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
+			<!-- Main -->
+			<div id="main">
+				<!-- Post -->
+				<div class="table-wrapper ocultar">
+					<?php if (!$this->cart->contents()): ?>
+						<div style="margin:auto; margin-top:30px; margin-bottom:10%;" align="center">
+							<h2>El carrito esta vacio!</h2>
+						</div>
+					<?php else: ?>
+						<form action="<?php echo base_url() ?>Shopping/actualizarCarrito" method="post">
+							<h3>MI CARRITO</h3>
+							<table class="alt">
+								<thead>
 									<tr>
-										<td><a name="<?php echo $i.'[rowid]' ?>" class="icon fa-trash-o label" href="<?php echo base_url() ?>Shopping/removeItem/<?php echo $items['rowid'] ?>"></a></td>
+										<th> </th>
+	                	<th>Producto</th>
+	                	<th>Precio</th>
+	                	<th>Cantidad</th>
+	                	<th>Total</th>
+	            		</tr>
+								</thead>
+								<tbody>
+									<?php $i = 1; ?>
+									<?php foreach ($this->cart->contents() as $items): ?>
+										<?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
 
-										<td><?php echo $items['name'] ?></td>
-										<td>$<?php echo $this->cart->format_number($items['price'],2,',','.') ?></td>
-			            	<td>
-			              	<ul class="icons alt">
-			              		<li>
-													<a class="icon solo fa-minus-circle label" onclick="cantidad.value--;"></a>
-													<input type="text" name="<?php echo $i.'[qty]' ?>" value="<?php echo $items['qty'] ?>" id="cantidad" >
-													<a class="icon fa-plus-circle label" onclick="cantidad.value++;"></a>
-												</li>
-			          			</ul>
-			            	</td>
-			            	<td>
-											<input type="hidden" id="subtotal" value="<?php echo $items['subtotal'] ?>">
-											$<?php echo $this->cart->format_number($items['subtotal'],2,',','.') ?>
+										<tr>
+											<td>
+												<a class="icon fa-trash-o label" name="<?php echo $i.'[rowid]' ?>" href="<?php echo base_url() ?>Shopping/removeItem/<?php echo $items['rowid'] ?>" ></a>
+											</td>
+
+											<td>
+												 <?php echo $items['name'] ?>
+											</td>
+
+											<td>
+												$<?php echo $this->cart->format_number($items['price'],2,',','.') ?>
+											</td>
+
+			                <td class="canti">
+	                			<ul class="icons alt mas">
+	                    		<li>
+														<!-- <a class="icon solo fa-minus-circle label" onclick="decrementar();"></a> -->
+
+														<input type="number" min="0" size="1" max="10" class="button cantidad" value="<?php echo $items['qty'] ?>" name="<?php echo $i.'[qty]' ?>" id="cantidad">
+
+														<!-- <a class="icon fa-plus-circle label" onclick="incrementar();"></a> -->
+													</li>
+	                  		</ul>
+	                  	</td>
+
+	                  	<td>
+												<input type="hidden" id="subtotal" value="<?php echo $items['subtotal'] ?>">
+												$<?php echo $this->cart->format_number($items['subtotal'],2,',','.') ?>
+											</td>
+										</tr>
+										<?php $i++; ?>
+									<?php endforeach; ?>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="4"></td>
+										<td><button type="submit" class="button small" >Actualizar Carrito</button></td>
+									</tr>
+								</tfoot>
+							</table>
+						</form>
+
+						<!--TOTAL -->
+						<h3>TOTAL</h3>
+						<div class="table-wrapper">
+							<table class="alt total">
+								<tbody>
+									<tr>
+										<td><h3>SUBTOTAL</h3></td>
+										<td>
+											<input type="text" id="precio" value="<?php echo $this->cart->total() ?>" style="border: 0;" readonly>
+											<input type="hidden" id="sub" value="<?php echo $this->cart->total() ?>">
+											<p>(impuesto incluido)</p>
 										</td>
 									</tr>
-								<?php $i++; ?>
-								<?php endforeach; ?>
-							<?php endif; ?>
 
-						</tbody>
+									<tr>
+										<td><h3>Envio</h3></td>
+										<td>
+											<input type="text" id="envio" value="" readonly style="border: 0;">
+											<p id="mensaje">Envio Gratis <small>(para pedidos mayores de $1,000)</small></p>
+										</td>
 
-						<tfoot>
-							<tr>
-								<td colspan="4"></td>
-								<td><button type="submit" class="button small">Actualizar Carrito</button></td>
-							</tr>
-						</tfoot>
-					</table>
-				</form>
+									</tr>
+									<tr>
+										<td><h3>Total</h3></td>
+										<td>
+											<input type="text" id="total" value="" readonly style="border: 0;">
+											<p>(incluye el .16% IVA)</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-				<!--TOTAL -->
-				<h3>TOTAL</h3>
-					<div class="table-wrapper">
-						<table class="alt total">
-							<tbody>
-								<tr>
-									<td><h3>SUBTOTAL</h3></td>
-									<td>
-										<input type="text" id="precio" value="<?php echo $this->cart->total() ?>" style="border: 0;" readonly>
-										<input type="hidden" id="sub" value="<?php echo $this->cart->total() ?>">
-										<p>(impuesto incluido)</p>
-									</td>
+						<!--TOTAL -->
+						<ul class="actions">
+							<li><a class="button special">Realizar Pedido</a></li>
+						</ul>
+					<?php endif; ?>
 
-								</tr>
-								<tr>
-									<td><h3>Envio</h3></td>
-									<td>
-										<input type="text" id="envio" value="" readonly style="border: 0;">
-										<p id="mensaje">Envio Gratis <small>(para pedidos mayores de $1,000)</small></p>
-									</td>
-								</tr>
-								<tr>
-									<td><h3>Total</h3></td>
-									<td>
-										<input type="text" id="total" value="" readonly style="border: 0;">
-										<p>(incluye el .16% IVA)</p>
-									</td>
-									<!-- <td><p>$<?php echo $this->cart->format_number($this->cart->total(),2,',','.'); ?> </p> </td> -->
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				<!--TOTAL -->
 
-				<ul class="actions">
-					<li><a class="button special">Realizar Pedido</a></li>
-				</ul>
+				</div>	<!--table-wrapper-->
 
-			</div>	<!--table-wrapper-->
-
-			<section class="inactiva">
+				<section class="inactiva">
 				<h3>Direccion Principal</h3>
 
 				<form method="post" action="<?php echo base_url() ?>Shopping/formEnvio" class="alt">
@@ -185,26 +195,17 @@
 					</div>
 
 					<div class="pago">
-						<h3>Metodo de Pago</h3>
 						<div class="row uniform">
-							<div class="4u 12u$(small)">
-								<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-								<label for="demo-priority-low">PayPal</label>
-							</div>
-							<div class="4u$ 12u$(small)">
-								<input type="radio" id="demo-priority-high" name="demo-priority">
-								<label for="demo-priority-high">Oxxo Pay Payment</label>
-							</div>
-							<div class="12u$">
+							<div class="12u$" style="margin-top:25px;">
 								<ul class="actions">
-									<!-- <li><input type="button" value="Realizar Pedido" class="special" /></li> -->
 									<li><button type="submit" id="pedido" class="special">Realizar Pedido</button></li>
 									<li><input class="cancelar" type="reset" value="Cancelar" /></li>
 								</ul>
 							</div>
 						</div>
 					</form>
-				</div><!--pago-->
+				</div>
+				<!--pago-->
 			</section><!--activa-->
 
 		</div><!--main-->
@@ -216,7 +217,6 @@
 					<ul><li>&copy; Todos los Derechos Reservados 2018</li><li>Design: <a href="https://linecodeid.com" target="_blank">Line Code ID</a></li></ul>
 				</div>
 			</footer>
-
 		</div><!--Wrapper-->
 
 
@@ -228,7 +228,7 @@
 		<script src="<?php echo base_url() ?>static/js/util.js"></script>
 		<script src="<?php echo base_url() ?>static/js/main.js"></script>
 		<script src="<?php echo base_url() ?>static/js/ventas.js"></script>
-		<script src="<?php echo base_url() ?>static/js/carrito.js"></script>
+		<script src="<?php echo base_url() ?>static/js/piezas.js"></script>
 
 	</body>
 </html>

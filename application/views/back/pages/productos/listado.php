@@ -14,7 +14,7 @@
 		<div class="card mb-3">
       <div class="card-header">
           <i class="fa fa-product-hunt"></i> Productos Existentes
-					<a href="#" class="btn btn-primary btn-small float-right">Agregar Nuevo Producto</a>
+					<a href="<?php echo base_url() ?>productos/agregar" class="btn btn-primary btn-small float-right">Agregar Nuevo Producto</a>
 			</div>
 
         <div class="card-body">
@@ -61,4 +61,4 @@
         </div>
     </div>
 	</div>
-</div>
+</div> 

@@ -27,35 +27,40 @@
 						</div>
 					<?php endif; ?>
 
-					<form method="post" action="<?= base_url(); ?>back/usuarios/new_usuarios" enctype="multipart/form-data">
+					<form method="post" action="<?= base_url(); ?>back/users/newUser" enctype="multipart/form-data">
 				    <div class="form-row">
 				      <div class="form-group col-md-12">
-				        <label for="uimg">Imagen:</label>
-				        <input type="file" class="form-control-file" id="uimg" name="uimg">
+				        <label for="usr_img">Imagen:</label>
+				        <input type="file" class="form-control-file" id="usr_img" name="usr_img">
 				      </div>
 				    </div>
 
 				    <div class="form-row">
 				      <div class="form-group col-md-4">
-				        <label for="uuser">Usuario:</label>
-				        <input type="text" class="form-control" id="uuser" placeholder="Escriba su nombre de usuario" name="uuser">
+				        <label for="usr_name">Nombre:</label>
+				        <input type="text" class="form-control" id="usr_name" placeholder="Escriba su nombre completo" name="usr_name">
 				      </div>
 
 				      <div class="form-group col-md-4">
-				        <label for="upassword">Password:</label>
-				        <input type="password" class="form-control" id="upassword" placeholder="Password" name="upassword">
+				        <label for="correo">Correo:</label>
+				        <input type="email" class="form-control" id="correo" placeholder="Ejemplo: correo@correo.com" name="correo">
 				      </div>
 				    </div>
 
-						<div class="row">
+						<div class="form-row">
 					    <div class="form-group col-md-4">
-					      <label for="ucorreo">Correo</label>
-					      <input type="email" class="form-control" id="ucorreo" placeholder="Correo@correo.com" name="ucorreo">
+					      <label for="usuario">Nombre de Usuario</label>
+					      <input type="text" class="form-control" id="usuario" placeholder="Ingresa un nombre de usuario" name="usuario">
+					    </div>
+
+							<div class="form-group col-md-4">
+					      <label for="password">Contraseña</label>
+					      <input type="password" class="form-control" id="password" placeholder="" name="password">
 					    </div>
 
 				      <div class="form-group col-md-4">
-				        <label for="idRolesu">Rol</label>
-									<select class="form-control" name="idRolesu">
+				        <label for="fk_roles">Rol</label>
+									<select class="form-control" name="fk_roles">
 										<option value="#">Tipo de Usuario</option>
 						        <?php if ( !empty( $roles ) ): ?>
 						          <?php foreach ($roles as $rol): ?>

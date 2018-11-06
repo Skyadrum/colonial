@@ -1710,7 +1710,7 @@
 		line-height: 1.5;
 		letter-spacing: 0.075em;
 		text-transform: uppercase;
-		margin: 0 0 1rem 0;
+		margin: 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1831,6 +1831,8 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #212931;
+		margin: 0;
+		padding: 0;
 	}
 
 	blockquote {
@@ -1962,7 +1964,18 @@
 			height: 2.5rem;
 			line-height: 2.5rem;
 			padding: 0 1.5rem;
-			
+		}
+		input[type="submit"].cantidad,
+		input[type="reset"].cantidad,
+		input[type="button"].cantidad,
+		button.cantidad,
+		.button.cantidad {
+			font-size: 0.7rem;
+			height: 2.5rem;
+			line-height: 2.5rem;
+			padding: 0;
+			width: 50px;
+
 
 		}
 
@@ -2446,7 +2459,7 @@
 
 		.image.fit {
 			display: block;
-			margin: 2.5rem 0;
+			margin-bottom: 5px;
 			width: 100%;
 		}
 
@@ -2475,7 +2488,7 @@
 		@media screen and (max-width: 736px) {
 
 			.image.fit {
-				margin: 2rem 0;
+				margin: 5px;
 			}
 
 			.image.main {
@@ -2516,7 +2529,7 @@
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2rem 0;
+		margin: 0 0 5px 0;
 		padding-left: 1rem;
 	}
 
@@ -2547,9 +2560,10 @@
 
 			ul.icons li {
 				display: inline-block;
-				padding: 0 0.5rem 0 0;
+				padding: 0 0 0 0;
 				vertical-align: middle;
 			}
+
 
 				ul.icons li:last-child {
 					padding-right: 0;
@@ -2571,6 +2585,10 @@
 				-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 				transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 				font-size: 1rem;
+			}
+			ul.icons.alt li span strong{
+				color: black!important;
+				font-size: 1.5em;
 			}
 
 		ul.actions {
@@ -2810,6 +2828,7 @@
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
+		margin-bottom: 10px;
 	}
 
 	table {
@@ -2823,7 +2842,7 @@
 		}
 
 		table td {
-			padding: 0.75rem 0.75rem;
+			padding:  5px 0;
 		}
 
 		table th {
@@ -3600,7 +3619,7 @@
 			#main > .post header.major > h1, #main > .post header.major h2 {
 				font-size: 4rem;
 				line-height: 1.1;
-				margin: 0 0 2rem 0;
+				margin: 0;
 			}
 
 			#main > .post.featured {
@@ -3678,18 +3697,22 @@
 				border-style: solid;
 				border-top-width: 2px;
 				text-align: center;
+				padding: 1em 2em;
 			}
 
 				#main > .posts > article > :last-child {
 					margin-bottom: 0;
+
 				}
 
 				#main > .posts > article:nth-child(2n - 1) {
 					border-left-width: 0;
+
 				}
 
 				#main > .posts > article:nth-child(-n + 2) {
 					border-top-width: 0;
+
 				}
 
 			@media screen and (max-width: 980px) {
@@ -4030,12 +4053,12 @@
 				}
 
 					#footer > section.split > section:first-child {
-						padding: 5rem 4rem 1rem 4rem ;
+						padding: 1rem 4rem 1rem 4rem ;
 						border-top: 0;
 					}
 
 					#footer > section.split > section:last-child {
-						padding: 3rem 4rem 3rem 4rem ;
+						padding: 1rem 4rem 1rem 4rem ;
 					}
 
 				#footer > section.split.contact > section {
@@ -4187,11 +4210,11 @@
 			}
 
 		}
-		
+
 	#copyright {
 		color: #ffffff;
 		position: relative;
-		color: rgba(255, 255, 255, .45);
+
 		cursor: default;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 0.8rem;
@@ -4493,7 +4516,7 @@
 		padding-top: 20px;
 		padding-bottom: 0px;
 		height: 150px;
-		background: rgba(61, 64, 100, 0.5)!important;
+		background: rgba(74, 75, 87, 0.5)!important;
 	}
 	.left tr td{
 		text-align: left;
@@ -4506,4 +4529,24 @@
 	}
 	ul.mas li a{
 		cursor: pointer;
+	}
+	.red{
+		color: red;
+		font-size: 13px;
+	}
+	.black{
+		color: black!important;
+	}
+
+	p.red{
+		margin: 0;
+	}
+	td.canti{
+		display: block;
+		margin: 0 auto;
+	}
+	td.canti ul{
+		display: block;
+		margin: 0 auto;
+		width: 150px;
 	}

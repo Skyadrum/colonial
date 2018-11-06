@@ -63,7 +63,7 @@ $route['contact'] = 'Home/contact';
 $route['store/(:num)'] = 'Home/store/$1';
 
 // Backend Routes
-$route['admin'] = 'login/index';
+$route['admin'] = 'Login/index';
 $route['dashboard'] = 'back/Dashboard';
 
 
@@ -74,6 +74,12 @@ $route['roles/agregar'] = 'back/Roles/form';
 // Usuarios Routes
 $route['usuarios'] = 'back/Users/listado';
 $route['usuarios/agregar'] = 'back/Users/form';
+$route['usuarios/editar/(:num)'] = 'back/Users/edit/$1';
+//Falta editar
+
+// Clientes Routes
+$route['clientes'] = 'back/Clientes/listado';
+$route['clientes/info/(:num)'] = 'back/Clientes/cliInfo/$1';
 
 // Banner Routes
 $route['banners'] = 'back/Banners/listado';
@@ -88,4 +94,4 @@ $route['shopping'] = 'Shopping/index';
 $route['productos'] = 'back/Productos/listado';
 $route['productos/agregar'] = 'back/Productos/form';
 $route['productos/editar/(:num)'] = 'back/Productos/editar/$1';
-$route['productos/(:num)'] = 'back/Productos/eliminar/$1';
+$route['productos/eliminar/(:num)'] = 'back/Productos/eliminar/$1';

@@ -158,7 +158,7 @@ class Productos extends CI_Controller{
             alert("Producto eliminado");
           </script>';
     $this->Productos_model->delete($id);
-    redirect(base_url().'back/productos/listado', 'refresh');
+    redirect(base_url().'productos', 'refresh');
   }
 
 }

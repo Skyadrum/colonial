@@ -18,52 +18,26 @@
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo base_url() ?>productos">
           <i class="fa fa-product-hunt" aria-hidden="true"></i>
           <span class="nav-link-text">Productos</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo base_url() ?>clientes">
           <i class="fa fa-user-plus" aria-hidden="true"></i>
           <span class="nav-link-text">Clientes</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo base_url() ?>banners">
           <i class="fa fa-tasks" aria-hidden="true"></i>
           <span class="nav-link-text">Banners</span>
         </a>
       </li>
-      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link" href="tables.html">
-          <i class="fa fa-fw fa-table"></i>
-          <span class="nav-link-text">Tables</span>
-        </a>
-      </li> -->
-
-      <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-newspaper-o"></i>
-          <span class="nav-link-text">Contenido</span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseComponents">
-          <li>
-            <a href="<?php echo base_url(); ?>back/banners/listado">Banner</a>
-          </li>
-          <li>
-            <a href="<?php echo base_url(); ?>back/noticias/listado">Noticas</a>
-          </li>
-          <li>
-            <a href="<?php echo base_url(); ?>back/portafolios/listado">Portafolios</a>
-          </li>
-          <li>
-            <a href="<?php echo base_url(); ?>back/correos/listado">Correos</a>
-          </li>
-        </ul>
-      </li> -->
 
     </ul>
+
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">
         <a class="nav-link text-center" id="sidenavToggler">
@@ -77,7 +51,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span><?php echo $this->session->userdata('usuario') ?></span>
-          <img src="<?= base_url(); ?>media/users/<?= $this->session->userdata('imagen') ?>" class="img .img-fluid rounded-circle" height="40px;" width="40px;">
+          <img src="<?= base_url(); ?>media/users/<?= $this->session->userdata('img') ?>" class="img .img-fluid rounded-circle" height="40px;" width="40px;">
           <!-- <i class="fa fa-fw fa-envelope"></i> -->
         </a>
         <div class="dropdown-menu text-center" style="background-color: #F6F7F9;">

@@ -17,11 +17,11 @@
         <div class="card text-white bg-primary o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
-              <i class="fa fa-fw fa-comments"></i>
+              <i class="fa fa-fw fa-tasks"></i>
             </div>
             <div class="mr-5">Agregar Banner</div>
           </div>
-          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>">
+          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>banners/agregar">
             <span class="float-left">Agregar</span>
             <span class="float-right">
               <i class="fa fa-angle-right"></i>
@@ -34,11 +34,11 @@
         <div class="card text-white bg-warning o-hidden h-100">
           <div class="card-body">
             <div class="card-body-icon">
-              <i class="fa fa-fw fa-list"></i>
+              <i class="fa fa-fw fa-users"></i>
             </div>
-            <div class="mr-5">Agregar Notcias</div>
+            <div class="mr-5">Agregar Usuarios</div>
           </div>
-          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>">
+          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>usuarios/agregar">
             <span class="float-left">Agregar</span>
             <span class="float-right">
               <i class="fa fa-angle-right"></i>
@@ -52,11 +52,11 @@
           <div class="card-body">
             <div class="card-body-icon">
               <!-- <i class="fa fa-fw fa-shopping-cart"></i> -->
-              <i class="fa fa-fw fa-support"></i>
+              <i class="fa fa-fw fa-product-hunt"></i>
             </div>
-            <div class="mr-5">Agregar Proyectos al Portafolios</div>
+            <div class="mr-5">Agregar Productos</div>
           </div>
-          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>">
+          <a class="card-footer text-white clearfix small z-1" href="<?php echo base_url(); ?>productos/agregar">
             <span class="float-left">Agregar</span>
             <span class="float-right">
               <i class="fa fa-angle-right"></i>
@@ -64,23 +64,6 @@
           </a>
         </div>
       </div>
-
-      <!-- <div class="col-xl-3 col-sm-6 mb-3">
-        <div class="card text-white bg-danger o-hidden h-100">
-          <div class="card-body">
-            <div class="card-body-icon">
-              <i class="fa fa-fw fa-support"></i>
-            </div>
-            <div class="mr-5">Agregar proyecto al Portafolios</div>
-          </div>
-          <a class="card-footer text-white clearfix small z-1" href="#">
-            <span class="float-left">View Details</span>
-            <span class="float-right">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>

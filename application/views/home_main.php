@@ -1,6 +1,4 @@
-<!-- Main -->
 <div id="main">
-
 	<!-- Featured Post -->
 	<article class="post featured">
 		<header class="major">
@@ -11,9 +9,9 @@
 			facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
 			amet nullam sed etiam veroeros.</p>
 		</header>
-		<a href="<?php echo base_url() ?>about" class="image main"><img src="<?php echo base_url() ?>images/pic00.jpg" /></a>
+		<a href="generic.html" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 		<ul class="actions">
-			<li><a href="<?php echo base_url() ?>about" class="button big">Nosotros</a></li>
+			<li><a href="generic.html" class="button big">Nosotros</a></li>
 		</ul>
 	</article>
 
@@ -39,19 +37,9 @@
 
 	<!-- Footer -->
 	<footer>
-		<!-- <div class="pagination">
-			<a href="#" class="previous">Prev</a>
-			<a href="#" class="page active">1</a>
-			<a href="#" class="page">2</a>
-			<a href="#" class="page">3</a>
-			<span class="extra">&hellip;</span>
-			<a href="#" class="page">8</a>
-			<a href="#" class="page">9</a>
-			<a href="#" class="page">10</a>
-			<a href="#" class="next">Next</a>
-		</div> -->
-
-		<?php echo $paginacion ?>
+		<div class="pagination">
+			<?php echo $paginacion ?>
+		</div>
 	</footer>
 
 </div>

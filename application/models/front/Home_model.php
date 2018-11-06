@@ -30,7 +30,7 @@ class Home_model extends CI_Model{
   }
 
   function get_products($per_page){
-    $datos = $this->db->get('Productos', $per_page, $this->uri->segment(3));
+    $datos = $this->db->get('Productos', $per_page, $this->uri->segment(2));
 
     return $datos->result();
 

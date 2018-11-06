@@ -75,10 +75,16 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	// 'hostname' => 'localhost',
+	// 'username' => 'id7077209_colonial',
+	// 'password' => 'colonialsantiago',
+	// 'database' => 'id7077209_colonialsantiago',
+
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => 'root',
 	'database' => 'Colonial',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

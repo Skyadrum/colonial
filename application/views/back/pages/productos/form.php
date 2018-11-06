@@ -13,7 +13,7 @@
 			<div class="card mb-3">
 				<div class="card-header">
 					<i class="fa fa-bookmark"></i> Agregar Nuevo Producto
-					<a href="" class="btn btn-primary btn-small float-right">Regresar</a>
+					<a href="<?php echo base_url() ?>productos" class="btn btn-primary btn-small float-right">Regresar</a>
 				</div>
 
 				<!-- Contenido -->

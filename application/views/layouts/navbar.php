@@ -17,6 +17,15 @@
 		<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 		<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 		<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-		<li><a href="<?php echo base_url() ?>shopping" class="icon fa-shopping-cart"><span class="label">Carrito</span> 1 </a></li>
+		<li><a href="<?php echo base_url() ?>shopping" class="icon fa-shopping-cart"><span class="label">Carrito</span>
+			<?php $items = $this->cart->contents();
+				if (!$items) {
+					echo "0";
+				} else {
+						echo count($items);
+					}
+		 ?>
+	 </a></li>
 	</ul>
+
 </nav>

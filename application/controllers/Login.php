@@ -25,6 +25,7 @@ class Login extends CI_Controller{
     } else {
         $data = array(
           'id'       => $resp->id_usuario,
+          'img'      => $resp->usr_img,
           'nombre'   => $resp->nombre,
           'usuario'  => $resp->usuario,
           'rol'      => $resp->fk_roles,
@@ -40,6 +41,11 @@ class Login extends CI_Controller{
           redirect(base_url().'back/dashboard/dash2');
         }
     }
+  }
+
+  function salir() {
+      $this->session->sess_destroy();
+      redirect(base_url().'login');
   }
 
 }

@@ -11,8 +11,13 @@ class Home extends CI_Controller{
     $this->load->model(array('front/Home_model'));
   }
 
-  function home(){
-    $config['base_url'] = base_url().'Home/home/';
+  function home($page=''){
+    $config['base_url'] = base_url().'home/';
+
+    $config['use_page_numbers'] = TRUE;
+    $page = ($page!='')? $page : 0;
+    $config["cur_page"] = $page;
+
     $config['total_rows'] = $this->Home_model->num_products();
     $config['per_page'] = 2;
     $config['num_links'] = 5;
@@ -20,20 +25,22 @@ class Home extends CI_Controller{
     $config['full_tag_open'] = '<div class="pagination">';
     $config['full_tag_close'] = '</div>';
 
-    $config['cur_tag_open'] = '<a active>';
+    $config['cur_tag_open'] = '<a class="active">';
     $config['cur_tag_close'] = '</a>';
 
     $config['first_link'] = '«';
-    $config['prev_link'] = '‹';
+    // $config['prev_link'] = '‹ Prev';
+    $config['prev_link'] = 'Prev';
 
     $config['last_link'] = '»';
-    $config['next_link'] = '›';
+    // $config['next_link'] = 'Next ›';
+    $config['next_link'] = 'Next';
 
-    $config['first_tag_open'] = '<a class="previous">';
-    $config['first_tag_close'] = '</a>';
-
-    $config['last_tag_open'] = '<a class="next">';
-    $config['last_tag_close'] = '</a>';
+    // $config['first_tag_open'] = '<a class="previous">';
+    // $config['first_tag_close'] = '</a>';
+    //
+    // $config['last_tag_open'] = '<a class="next">';
+    // $config['last_tag_close'] = '</a>';
 
     $this->pagination->initialize($config);
 
@@ -105,7 +112,7 @@ class Home extends CI_Controller{
     echo '<script type="text/javascript">
             alert("Su mensaje ha sido enviada");
         </script>';
-    redirect(base_url().'home', 'refresh');
+    redirect(base_url().'', 'refresh');
   }
 
 }

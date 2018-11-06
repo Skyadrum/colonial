@@ -1,18 +1,25 @@
-const stock = document.getElementById('stock');
-const cant = document.getElementById('qty');
+const disp = document.getElementById('disp'); //Numero de piezas en la DB
+const cantidad = document.getElementById('cantidad'); //Cantidad que se muestra,
+const qty = document.getElementById('qty'); //Cantidad que se guarda,
 
-// Funciones
-function piezas(e){
 
-  if (cantidad.value < 1) {
-      alert('No puedes comprar menos de una pieza');
-      cantidad.value = 1;
-  }
-
-  if (cantidad.value > parseInt(stock.value)) {
-      alert(`La cantidad máxima es de ${ parseInt(stock.value) } piezas`);
-      cantidad.value = parseInt(stock.value);
+function incrementar(){
+  if (cantidad.value < parseInt(disp.value)) {
+      cantidad.value ++;
+      qty.value ++;
   } else {
-      cant.value = cantidad.value;
+      alert(`No puedes comprar más de ${ disp.value } piezas`);
+      cantidad.value = parseInt(disp.value);
+    }
+}
+
+
+function decrementar(){
+  if (cantidad.value > 01) {
+    cantidad.value --;
+    qty.value --;
+  } else {
+      alert('No puedes comprar menos de una peiza');
+      cantidad.value = 1;
     }
 }

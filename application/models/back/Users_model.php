@@ -45,4 +45,34 @@ class Users_model extends CI_Model{
       }
   }
 
+  function getUser($id){
+    $this->db->where('id_usuario', $id);
+    $resultado = $this->db->get('Usuarios');
+
+    return $resultado->row();
+  }
+
+  function update($id, $data){
+    $this->db->where('id_usuario', $id);
+    return $this->db->update('Usuarios', $data);
+  }
+
+  function addUser($data){
+    $datos = array(
+      'usr_img'   => $data['usr_img'],
+      'usr_name'  => $data['usr_name'],
+      'correo'    => $data['correo'],
+      'usuario'   => $data['usuario'],
+      'password'  => $data['password'],
+      'fk_roles'  => $data['fk_roles'],
+    );
+
+    $this->db->insert('Usuarios', $datos);
+  }
+
+  function rmUser($id){
+    $this->db->where('id_usuario', $id);
+    $this->db->delete('Usuarios');
+  }
+
 }
