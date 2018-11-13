@@ -14,7 +14,7 @@
 		<div class="card mb-3">
       <div class="card-header">
           <i class="fa fa-bookmark"></i> Banners Existentes
-					<a href="#" class="btn btn-primary btn-small float-right">Agregar Nuevo Banner</a>
+					<a href="<?php echo base_url() ?>banners/agregar" class="btn btn-primary btn-small float-right">Agregar Nuevo Banner</a>
 			</div>
 
         <div class="card-body">
@@ -27,7 +27,6 @@
 									<tr class="text-center">
 										<th>Id</th>
 										<th>Imagen</th>
-										<th>Nombre</th>
 										<th>Acciones</th>
 									</tr>
                 </thead>
@@ -38,7 +37,7 @@
 												<td style="vertical-align:middle;">
 													<img src="<?= base_url() ?>media/banners/<?= $banner->imagen; ?>" class="img-fluid img-thumbnail" height="100px" width="100px">
 												</td>
-												<td style="vertical-align:middle;"><?= $banner->nombre; ?></td>
+												<!-- <td style="vertical-align:middle;"><?= $banner->nombre; ?></td> -->
 												<td style="vertical-align:middle;">
 													<div class="btn-group-sm text-center" role="group" aria-label="Basic example">
 

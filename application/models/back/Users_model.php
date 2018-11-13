@@ -32,6 +32,18 @@ class Users_model extends CI_Model{
     }
   }
 
+  function getRol($id){
+
+    $this->db->select('*');
+    $this->db->from('Usuarios');
+    $this->db->join('Roles', 'Roles.id_rol = Usuarios.id_usuario');
+    $query = $this->db->get();
+    
+    if ($query->num_rows() > 0) {
+        return $query->row();
+    }
+  }
+
   function getUsers(){
     $query = $this->db->query(
       'SELECT * FROM Usuarios as usr

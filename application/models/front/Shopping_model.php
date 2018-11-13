@@ -25,5 +25,5 @@ class Shopping_model extends CI_Model{
 
     return $this->db->insert('Clientes', $datos);
   }
-
+  
 }

@@ -64,7 +64,7 @@
 						 <div class="form-group col-md-4">
 							 <label for="fk_roles">Rol</label>
 								 <select class="form-control" name="fk_roles">
-									 <option value="#">Tipo de Usuario</option>
+									 <option value="<?php echo $usuario->fk_roles ?>"><?php echo $rol->nombre ?></option>
 									 <?php if ( !empty( $roles ) ): ?>
 										 <?php foreach ($roles as $rol): ?>
 											 <option value="<?= $rol->id_rol; ?>"><?= $rol->nombre; ?></option>

@@ -2,5 +2,5 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index.html" class="logo">Colonial Santiago</a>
+		<a href="<?php echo base_url() ?>" class="logo">Colonial Santiago</a>
 	</header>

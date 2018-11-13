@@ -35,7 +35,8 @@ class Users extends CI_Controller{
   function edit($id){
     $datos = array(
       'usuario' => $this->Users_model->getUser($id),
-      'roles' => $this->Users_model->getRoles()
+      'rol'     => $this->Users_model->getRol($id),
+      'roles'   => $this->Users_model->getRoles()
     );
 
     $this->load->view('back/layouts/header');

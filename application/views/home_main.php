@@ -9,9 +9,22 @@
 			facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
 			amet nullam sed etiam veroeros.</p>
 		</header>
-		<a href="generic.html" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+
+		<?php if (!$banners): ?>
+				<a href="" class="image main"><img src="<?php echo base_url() ?>images/pic00.jpg" alt="" /></a>
+		<?php else: ?>
+
+			<div class="slider">
+				<?php foreach ($banners as $banner): ?>
+					<a href="" class="image main">
+						<img src="<?php echo base_url() ?>media/banners/<?php echo $banner->imagen ?>" />
+					</a>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
 		<ul class="actions">
-			<li><a href="generic.html" class="button big">Nosotros</a></li>
+			<li><a href="" class="button big">Nosotros</a></li>
 		</ul>
 	</article>
 
@@ -43,3 +56,8 @@
 	</footer>
 
 </div>
+
+<!-- Slider -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>static/js/slider.js"></script>
+<script src="<?php echo base_url() ?>static/js/slider_app.js"></script>

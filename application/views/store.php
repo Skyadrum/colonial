@@ -7,12 +7,22 @@
 			<footer id="footer">
 				<section>
 			    <article>
-						<a href="#" class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->imagen ?>" alt="" /></a>
+
+						<a href="<?php echo base_url() ?>media/productos/<?php echo $producto->imagen ?>" data-lightbox="productos" class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->imagen ?>" alt="" /></a>
+
 						<div class="box alt">
 							<div class="row 50% uniform">
-								<div class="4u"><span class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img1 ?>" alt="" /></span></div>
+
+								<div class="4u"><a href="<?php echo base_url() ?>media/productos/<?php echo $producto->img1 ?>" data-lightbox="productos"class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img1 ?>" alt="imagen_producto" /></a></div>
+
+								<div class="4u"><a href="<?php echo base_url() ?>media/productos/<?php echo $producto->img2 ?>" data-lightbox="productos"class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img2 ?>" alt="imagen_producto" /></a></div>
+
+								<div class="4u$"><a href="<?php echo base_url() ?>media/productos/<?php echo $producto->img3 ?>" data-lightbox="productos" class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img3 ?>" alt="imagen_producto" /></a></div>
+
+
+								<!-- <div class="4u"><span class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img1 ?>" alt="" /></span></div>
 								<div class="4u"><span class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img2 ?>" alt="" /></span></div>
-								<div class="4u$"><span class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img3 ?>" alt="" /></span></div>
+								<div class="4u$"><span class="image fit"><img src="<?php echo base_url() ?>media/productos/<?php echo $producto->img3 ?>" alt="" /></span></div> -->
 							</div>
 						</div>
 			  	</article>
@@ -79,7 +89,11 @@
 			<script src="<?php echo base_url() ?>static/js/skel.min.js"></script>
 			<script src="<?php echo base_url() ?>static/js/util.js"></script>
 			<script src="<?php echo base_url() ?>static/js/main.js"></script>
+
+			<!--  -->
 			<script src="<?php echo base_url() ?>static/js/carrito.js"></script>
+			<script src="<?php echo base_url() ?>static/js/lightbox.js"></script>
+
 
 	</body>
 </html>

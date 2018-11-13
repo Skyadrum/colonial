@@ -30,7 +30,7 @@
 											</td>
 
 											<td>
-												 <?php echo $items['name'] ?>
+												<a href="<?php echo base_url() ?>store/<?php echo $items['id'] ?>"><?php echo $items['name'] ?></a>
 											</td>
 
 											<td>
@@ -42,7 +42,7 @@
 	                    		<li>
 														<!-- <a class="icon solo fa-minus-circle label" onclick="decrementar();"></a> -->
 
-														<input type="number" min="0" size="1" max="10" class="button cantidad" value="<?php echo $items['qty'] ?>" name="<?php echo $i.'[qty]' ?>" id="cantidad">
+														<input type="number" min="0" size="1" class="button cantidad" value="<?php echo $items['qty'] ?>" name="<?php echo $i.'[qty]' ?>" id="cantidad">
 
 														<!-- <a class="icon fa-plus-circle label" onclick="incrementar();"></a> -->
 													</li>

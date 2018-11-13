@@ -9,6 +9,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="<?php echo base_url() ?>static/css/main.css" />
+		<link rel="stylesheet" href="<?php echo base_url() ?>static/css/slider.css">
+		<link rel="stylesheet" href="<?php echo base_url() ?>static/css/lightbox.css">
 		<noscript><link rel="stylesheet" href="<?php echo base_url() ?>static/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-loading">

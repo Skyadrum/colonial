@@ -46,7 +46,8 @@ class Home extends CI_Controller{
 
     $data = array(
       'productos'   => $this->Home_model->get_products($config['per_page']),
-      'paginacion'  => $this->pagination->create_links()
+      'paginacion'  => $this->pagination->create_links(),
+      'banners'     => $this->Home_model->get_banners()
     );
 
     $this->load->view('layouts/header');
@@ -110,9 +111,10 @@ class Home extends CI_Controller{
     $this->email->send();
 
     echo '<script type="text/javascript">
-            alert("Su mensaje ha sido enviada");
+            alert("Su mensaje ha sido enviado, en breve nos comunicaremos con ustedes");
         </script>';
     redirect(base_url().'', 'refresh');
   }
+
 
 }

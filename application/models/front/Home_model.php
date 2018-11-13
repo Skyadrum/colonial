@@ -33,7 +33,14 @@ class Home_model extends CI_Model{
     $datos = $this->db->get('Productos', $per_page, $this->uri->segment(2));
 
     return $datos->result();
+  }
 
+  function get_banners(){
+    $query = $this->db->query('SELECT * FROM Banners');
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    }
   }
 
 }
