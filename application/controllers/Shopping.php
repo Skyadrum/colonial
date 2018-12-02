@@ -104,8 +104,6 @@ class Shopping extends CI_Controller{
       'newline' => "\r\n"
     );
 
-    $this->email->initialize($config);
-
     // echo "<pre>";
     // print_r ($items);
     // echo "</pre>";
@@ -251,26 +249,30 @@ class Shopping extends CI_Controller{
         </html>';
       }
 
-    $this->email->from($data['correo'], $data['nombre']);
-    $this->email->to('ejemplo@ejemplo.com');
+    $this->email->initialize($config);
+
+    $this->email->from('linecodeid@gmail.com', 'Luis Morles Santiago');
+    $this->email->to($data['correo']);
+    $this->email->subject('Orden del compra');
     $this->email->message($msg);
 
     // $data['item_name']
 
-    $this->email->send();
+    // $this->email->send();
 
     if ($this->Shopping_model->addVenta($data)) {
       echo '<script type="text/javascript">
               alert("Su petición ha sido recibida, por favor revise su correo en unos minutos");
             </script>';
-      $this->cart->destroy();
-      redirect(base_url().'', 'refresh');
+      $this->email->send();
+      // $this->cart->destroy();
+      // redirect(base_url().'', 'refresh');
 
     } else {
         echo '<script type="text/javascript">
                 alert("Algo va mal, por favor verifique sus datos");
               </script>';
-        redirect(base_url().'shopping', 'refresh');
+        // redirect(base_url().'shopping', 'refresh');
       }
   }
 
